@@ -1,3 +1,5 @@
+package week1.LabProblems;
+
 import java.util.Scanner;
 
 public class ShortestLongestWord {

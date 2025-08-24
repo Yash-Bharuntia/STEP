@@ -1,3 +1,5 @@
+package week1.PracticeProblems;
+
 import java.util.Scanner;
 
 public class StringMethods {

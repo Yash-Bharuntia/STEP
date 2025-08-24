@@ -1,4 +1,4 @@
-package Week1.AssignmentProblems;
+package week1.AssignmentProblems;
 
 import java.util.Scanner;
 
@@ -34,8 +34,8 @@ public class CharacterFrequency {
         String[][] freqArray = findCharFrequency(input);
         System.out.println("Character\tFrequency");
         System.out.println("-------------------------");
-        for (int i = 0; i < freqArray.length; i++) {
-            System.out.println(freqArray[i][0] + "\t\t" + freqArray[i][1]);
+        for (String[] strings : freqArray) {
+            System.out.println(strings[0] + "\t\t" + strings[1]);
         }
     }
 }

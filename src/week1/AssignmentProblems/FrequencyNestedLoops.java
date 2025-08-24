@@ -1,4 +1,4 @@
-package Week1.AssignmentProblems;
+package week1.AssignmentProblems;
 
 import java.util.Scanner;
 

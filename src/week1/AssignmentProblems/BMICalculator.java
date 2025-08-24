@@ -1,3 +1,5 @@
+package week1.AssignmentProblems;
+
 import java.util.Scanner;
 
 public class BMICalculator {

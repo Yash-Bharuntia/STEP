@@ -1,3 +1,5 @@
+package week1.LabProblems;
+
 import java.util.Scanner;
 
 public class  VowelConsonantType {
@@ -26,8 +28,8 @@ public class  VowelConsonantType {
     public static void display2DArray(String[][] arr) {
         System.out.println("Character\tType");
         System.out.println("-------------------------");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i][0] + "\t\t" + arr[i][1]);
+        for (String[] strings : arr) {
+            System.out.println(strings[0] + "\t\t" + strings[1]);
         }
     }
     public static void main(String[] args) {

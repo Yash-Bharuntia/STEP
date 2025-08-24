@@ -1,3 +1,5 @@
+package week1.LabProblems;
+
 import java.util.*;
 
 public class Week1 {
