@@ -4,9 +4,7 @@ import java.util.*;
 class TextCompression {
     static class Pair { char ch; int freq; Pair(char c,int f){ch=c;freq=f;} }
 
-    // Count unique chars and frequencies without HashMap
     static Pair[] frequencies(String text){
-        // collect unique in arrays
         char[] chars = new char[text.length()];
         int[] freq = new int[text.length()];
         int unique=0;
@@ -22,18 +20,15 @@ class TextCompression {
         return res;
     }
 
-    // Build code mapping: frequent => 1-char code from codebook; others => "~"+index (2 chars)
     static String[][] buildCodes(Pair[] freqTable){
         Arrays.sort(freqTable, (a,b)->Integer.compare(b.freq,a.freq)); // desc by freq
         String codebook = "!@#$%^&*+=?/ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         int k1 = Math.min(codebook.length(), freqTable.length);
-        String[][] map = new String[freqTable.length][2]; // [char, code]
-        // top frequent single-char codes
+        String[][] map = new String[freqTable.length][2];
         for(int i=0;i<k1;i++){
             map[i][0]=String.valueOf(freqTable[i].ch);
             map[i][1]=String.valueOf(codebook.charAt(i));
         }
-        // remaining two-char codes with '~' prefix and (i-k1) base36
         for(int i=k1;i<freqTable.length;i++){
             int idx=i-k1;
             String base = Integer.toString(idx, 36);
@@ -45,7 +40,7 @@ class TextCompression {
 
     static String codeFor(char c, String[][] map){
         for(String[] row: map) if(row[0].charAt(0)==c) return row[1];
-        return "?"; // should not happen
+        return "?";
     }
 
     static char charFor(String code, String[][] map){
@@ -63,7 +58,6 @@ class TextCompression {
     }
 
     static String decompress(String compressed, String[][] map){
-        // split by spaces manually
         List<String> tokens = new ArrayList<>();
         int i=0, n=compressed.length();
         while(i<n){
@@ -117,7 +111,7 @@ class TextCompression {
         System.out.println("Decompressed equals original? "+text.equals(decompressed));
 
         int origBits = text.length()*8;
-        int compBits = compressed.length()*8; // simplistic, shows relative size of encoded string representation
+        int compBits = compressed.length()*8;
         double efficiency = 100.0*(1.0 - ((double)compBits/Math.max(1,origBits)));
         System.out.printf("Compression Efficiency: %.2f%%%n", efficiency);
     }

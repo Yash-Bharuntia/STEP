@@ -1,4 +1,4 @@
-package Week2.AssignmentProblems;
+package week2.AssignmentProblems;
 import java.util.*;
 
 class PasswordStrength {

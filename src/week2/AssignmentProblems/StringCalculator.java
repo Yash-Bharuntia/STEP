@@ -1,12 +1,11 @@
-package Week2.AssignmentProblems;
+package week2.AssignmentProblems;
 import java.util.*;
 
 class StringCalculator {
-    // ASCII checks
-    static boolean isDigit(char c){ int a=c; return a>=48 && a<=57; }
+    static boolean isDigit(char c){
+        return PasswordStrength.isDigit(c); }
     static boolean isSpace(char c){ return c==' '; }
 
-    // Validate allowed chars and parentheses
     static boolean validate(String expr){
         int bal=0;
         for(int i=0;i<expr.length();i++){
@@ -19,21 +18,17 @@ class StringCalculator {
         return bal==0;
     }
 
-    // Trim spaces
     static String compact(String s){
         StringBuilder sb=new StringBuilder();
         for(int i=0;i<s.length();i++) if(!isSpace(s.charAt(i))) sb.append(s.charAt(i));
         return sb.toString();
     }
 
-    // Evaluate no-parentheses expression with precedence
     static long evalFlat(String s, StringBuilder steps){
-        // tokenize numbers and ops manually
         List<Long> nums=new ArrayList<>();
         List<Character> ops=new ArrayList<>();
         int i=0; int n=s.length();
         while(i<n){
-            // parse (possibly signed) number
             int sign=1;
             if((i==0 || (i>0 && (s.charAt(i-1)=='('||s.charAt(i-1)=='+'||s.charAt(i-1)=='-'||s.charAt(i-1)=='*'||s.charAt(i-1)=='/'))) && (i<n && (s.charAt(i)=='+'||s.charAt(i)=='-'))){
                 if(s.charAt(i)=='-') sign=-1;
@@ -48,7 +43,6 @@ class StringCalculator {
                 ops.add(op);
             }
         }
-        // first pass: * and /
         for(int k=0;k<ops.size();){
             char op=ops.get(k);
             if(op=='*' || op=='/'){
@@ -60,7 +54,6 @@ class StringCalculator {
                 ops.remove(k);
             } else k++;
         }
-        // second pass: + and -
         long res = nums.get(0);
         for(int k=0;k<ops.size();k++){
             char op=ops.get(k);
@@ -72,9 +65,7 @@ class StringCalculator {
         return res;
     }
 
-    // Resolve parentheses recursively
     static long eval(String s, StringBuilder steps){
-        // find innermost parentheses
         int start=-1;
         for(int i=0;i<s.length();i++){
             if(s.charAt(i)=='(') start=i;
@@ -88,7 +79,6 @@ class StringCalculator {
                 return eval(replaced, steps);
             }
         }
-        // no parentheses
         return evalFlat(s, steps);
     }
 

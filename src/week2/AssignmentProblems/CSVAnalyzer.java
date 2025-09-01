@@ -1,8 +1,7 @@
-package Week2.AssignmentProblems;
+package week2.AssignmentProblems;
 import java.util.*;
 
 class CSVAnalyzer {
-    // Parse CSV without split(); support quoted fields with commas
     static String[][] parseCSV(String input){
         List<List<String>> rows=new ArrayList<>();
         int i=0, n=input.length();
@@ -14,14 +13,13 @@ class CSVAnalyzer {
             char c=input.charAt(i);
             if(inQuotes){
                 if(c=='"'){
-                    if(i+1<n && input.charAt(i+1)=='"'){ cell.append('"'); i++; } // escaped quote
+                    if(i+1<n && input.charAt(i+1)=='"'){ cell.append('"'); i++; }
                     else inQuotes=false;
                 } else cell.append(c);
             } else {
                 if(c=='"'){ inQuotes=true; }
                 else if(c==','){ currentRow.add(cell.toString()); cell.setLength(0); }
                 else if(c=='\n' || c=='\r'){
-                    // end row (handle \r\n)
                     if(c=='\r' && i+1<n && input.charAt(i+1)=='\n') i++;
                     currentRow.add(cell.toString()); cell.setLength(0);
                     rows.add(new ArrayList<>(currentRow));
@@ -30,10 +28,8 @@ class CSVAnalyzer {
             }
             i++;
         }
-        // last cell/row
         currentRow.add(cell.toString());
         rows.add(new ArrayList<>(currentRow));
-        // normalize to rectangular
         int cols=0; for(List<String> r: rows) cols=Math.max(cols, r.size());
         String[][] out=new String[rows.size()][cols];
         for(int r=0;r<rows.size();r++){
@@ -86,7 +82,6 @@ class CSVAnalyzer {
             }
         }
 
-        // Print table
         System.out.println("Parsed Table:");
         for(int r=0;r<rows;r++){
             StringBuilder sb=new StringBuilder();
@@ -97,7 +92,6 @@ class CSVAnalyzer {
             System.out.println(sb);
         }
 
-        // Column stats
         System.out.println("\nColumn-wise Statistics:");
         String hdr="Col  Type      Min        Max        Avg        Missing Invalid Unique";
         System.out.println(hdr);

@@ -1,4 +1,4 @@
-package Week2.AssignmentProblems;
+package week2.AssignmentProblems;
 import java.util.*;
 
 class FileOrganizer {
@@ -13,7 +13,6 @@ class FileOrganizer {
     }
 
     static boolean isValidNameChar(char c){
-        // Disallow: /\:*?"<>| and control chars
         return c>31 && "\\/:*?\"<>|".indexOf(c)==-1;
     }
 
@@ -66,7 +65,6 @@ class FileOrganizer {
         return base + "(" + count + ")" + ext;
     }
 
-    // Simple content-based hints (simulated via filename keywords)
     static String subCategoryHint(FileInfo f){
         String n = f.name.toLowerCase();
         if(f.category.equals("Documents")){
@@ -114,7 +112,6 @@ class FileOrganizer {
         }
         System.out.println("\nInvalid names: "+invalid+", Unknown types: "+unknown);
 
-        // Batch rename simulation (shell-neutral)
         System.out.println("\nBatch Rename Commands:");
         for(FileInfo f: list){
             System.out.println("RENAME \""+f.original+"\" -> \""+f.suggestion+"\"");

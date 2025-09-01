@@ -1,15 +1,13 @@
-package Week2.AssignmentProblems;
+package week2.AssignmentProblems;
+
 import java.util.*;
 
 class SpellChecker {
-    // ---- Utilities ----
     static boolean isWordChar(char c) {
-        // letters or digits only (ASCII)
         int a = (int)c;
         return (a>=48 && a<=57) || (a>=65 && a<=90) || (a>=97 && a<=122);
     }
 
-    // Manual split into words, keep punctuation as separators
     static String[] manualSplitWords(String sentence) {
         List<String> words = new ArrayList<>();
         int n = sentence.length(), i = 0;
@@ -22,7 +20,6 @@ class SpellChecker {
         return words.toArray(new String[0]);
     }
 
-    // Levenshtein edit distance (insert/delete/substitute)
     static int distance(String a, String b) {
         int n = a.length(), m = b.length();
         int[][] dp = new int[n+1][m+1];
@@ -50,14 +47,13 @@ class SpellChecker {
         return bestD <= threshold ? best : "(no suggestion)";
     }
 
-    // Tabular print
     static void printReport(String[] words, String[] dict) {
         String fmt = "%-16s %-16s %-8s %-12s%n";
         System.out.printf(fmt, "Word", "Suggestion", "Dist", "Status");
         System.out.printf(fmt, "----", "----------", "----", "------");
         for (String w: words) {
             String s = suggest(w, dict, 2);
-            int d = s.equals("(no suggestion)") ? - : distance(w.toLowerCase(), s.toLowerCase());
+            int d = s.equals("(no suggestion)") ? -1 : distance(w.toLowerCase(), s.toLowerCase());
             String status = (d==0) ? "Correct" : (s.equals("(no suggestion)") ? "Misspelled" : "Misspelled");
             System.out.printf(fmt, w, s, (d<0?"-":String.valueOf(d)), status);
         }
