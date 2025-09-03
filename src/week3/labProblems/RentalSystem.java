@@ -1,10 +1,10 @@
 package week3.labProblems;
 
 class Vehicle {
-    private String vehicleId;
-    private String brand;
-    private String model;
-    private double rentPerDay;
+    private final String vehicleId;
+    private final String brand;
+    private final String model;
+    private final double rentPerDay;
     private boolean isAvailable;
 
     private static int totalVehicles = 0;

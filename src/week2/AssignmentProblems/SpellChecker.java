@@ -4,7 +4,7 @@ import java.util.*;
 
 class SpellChecker {
     static boolean isWordChar(char c) {
-        int a = (int)c;
+        int a = c;
         return (a>=48 && a<=57) || (a>=65 && a<=90) || (a>=97 && a<=122);
     }
 
@@ -54,7 +54,7 @@ class SpellChecker {
         for (String w: words) {
             String s = suggest(w, dict, 2);
             int d = s.equals("(no suggestion)") ? -1 : distance(w.toLowerCase(), s.toLowerCase());
-            String status = (d==0) ? "Correct" : (s.equals("(no suggestion)") ? "Misspelled" : "Misspelled");
+            String status = (d==0) ? "Correct" : ("Misspelled");
             System.out.printf(fmt, w, s, (d<0?"-":String.valueOf(d)), status);
         }
     }

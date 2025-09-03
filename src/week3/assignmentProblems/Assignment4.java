@@ -102,7 +102,7 @@ public class Assignment4{
         System.out.println(Student.gradeDistribution(all));
         Map<String,List<Student>> classes=new LinkedHashMap<>();
         classes.put("X-A",Arrays.asList(s1,s2));
-        classes.put("X-B",Arrays.asList(s3));
+        classes.put("X-B", List.of(s3));
         Student.compareClasses(classes);
     }
 }

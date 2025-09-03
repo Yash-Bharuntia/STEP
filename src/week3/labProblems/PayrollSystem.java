@@ -1,11 +1,11 @@
 package week3.labProblems;
 
 class Employee {
-    private String empId;
-    private String empName;
-    private String department;
-    private double baseSalary;
-    private String empType;
+    private final String empId;
+    private final String empName;
+    private final String department;
+    private final double baseSalary;
+    private final String empType;
     private static int totalEmployees = 0;
 
     public Employee(String empName, String department, double baseSalary) {

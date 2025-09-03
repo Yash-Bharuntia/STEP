@@ -32,9 +32,7 @@ public class ShortestLongestWord {
             }
         }
         String[] words = new String[wordCount];
-        for (int i = 0; i < wordCount; i++) {
-            words[i] = temp[i];
-        }
+        System.arraycopy(temp, 0, words, 0, wordCount);
         return words;
     }
     public static String[][] getWordLengthArray(String[] words) {

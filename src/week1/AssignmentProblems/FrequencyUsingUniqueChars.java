@@ -24,9 +24,7 @@ public class FrequencyUsingUniqueChars {
         }
 
         char[] result = new char[uniqueCount];
-        for (int i = 0; i < uniqueCount; i++) {
-            result[i] = temp[i];
-        }
+        System.arraycopy(temp, 0, result, 0, uniqueCount);
         return result;
     }
 

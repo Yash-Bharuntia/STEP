@@ -24,8 +24,8 @@ public class StringCompare {
         double sim=100.0*(1.0-dist/(double)Math.max(s1.length(),s2.length()));
         System.out.println("Similarity %: "+sim);
 
-        String pooled="Pool".intern();
-        String pooled2=new String("Pool").intern();
+        String pooled= "Pool";
+        String pooled2= "Pool".intern();
         System.out.println("Intern check: "+(pooled==pooled2));
     }
 }

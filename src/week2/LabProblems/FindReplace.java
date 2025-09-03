@@ -15,7 +15,7 @@ public class FindReplace {
     static String manualReplace(String text, String pattern, String replacement) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < text.length(); ) {
-            if (i <= text.length()-pattern.length() && text.substring(i, i+pattern.length()).equals(pattern)) {
+            if (i <= text.length()-pattern.length() && text.startsWith(pattern, i)) {
                 sb.append(replacement);
                 i += pattern.length();
             } else {

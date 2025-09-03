@@ -8,8 +8,7 @@ public class EmailAnalyzer {
         if(at==-1 || at!=lastAt) return false;
         int dot=email.indexOf('.',at);
         if(dot==-1) return false;
-        if(at==0 || dot-at<=1 || dot==email.length()-1) return false;
-        return true;
+        return at != 0 && dot - at > 1 && dot != email.length() - 1;
     }
 
     static void analyzeEmails(String[] emails){

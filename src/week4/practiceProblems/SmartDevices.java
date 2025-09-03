@@ -5,7 +5,7 @@ public class SmartDevices {
     private String location;
     private boolean isOnline;
     private double powerConsumption;
-    private String[] connectedDevices;
+    private final String[] connectedDevices;
     private int connectionCount;
 
     public SmartDevices(String deviceName, String location, boolean isOnline, double powerConsumption) {

@@ -1,9 +1,9 @@
 package week3.labProblems;
 
 class Book {
-    private String bookId;
-    private String title;
-    private String author;
+    private final String bookId;
+    private final String title;
+    private final String author;
     private boolean isAvailable;
     private static int totalBooks = 0;
     private static int availableBooks = 0;
@@ -50,9 +50,9 @@ class Book {
 }
 
 class Member {
-    private String memberId;
-    private String memberName;
-    private String[] booksIssued;
+    private final String memberId;
+    private final String memberName;
+    private final String[] booksIssued;
     private int bookCount;
     private static int totalMembers = 0;
 

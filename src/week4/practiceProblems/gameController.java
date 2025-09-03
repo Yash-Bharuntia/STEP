@@ -1,11 +1,11 @@
 package week4.practiceProblems;
 
 public class gameController {
-    private String controllerBrand;
-    private String connectionType;
-    private boolean hasVibration;
-    private int batteryLevel;
-    private double sensitivity;
+    private final String controllerBrand;
+    private final String connectionType;
+    private final boolean hasVibration;
+    private final int batteryLevel;
+    private final double sensitivity;
 
     public gameController() {
         this.controllerBrand = "GenericPad";

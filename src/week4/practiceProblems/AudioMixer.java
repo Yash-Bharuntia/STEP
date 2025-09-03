@@ -1,11 +1,11 @@
 package week4.practiceProblems;
 
 public class AudioMixer {
-    private String mixerModel;
-    private int numberOfChannels;
-    private boolean hasBluetoothConnectivity;
-    private double maxVolumeDecibels;
-    private String[] connectedDevices;
+    private final String mixerModel;
+    private final int numberOfChannels;
+    private final boolean hasBluetoothConnectivity;
+    private final double maxVolumeDecibels;
+    private final String[] connectedDevices;
     private int deviceCount;
 
     public AudioMixer() {

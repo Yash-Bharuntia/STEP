@@ -2,8 +2,8 @@ package week3.assignmentProblems;
 
 import java.util.*;
 class Account{
-    private String ownerName;
-    private String accountId;
+    private final String ownerName;
+    private final String accountId;
     private double income;
     private double expenses;
     private double savings;
