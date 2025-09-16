@@ -1,3 +1,5 @@
+package week6.practiceProblems;
+
 public class Car extends Vehicle {
     private int numberOfDoors;
     private String fuelType;

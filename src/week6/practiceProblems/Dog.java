@@ -1,3 +1,5 @@
+package week6.practiceProblems;
+
 public class Dog extends Mammal {
     private String breed;
     private boolean isDomesticated;

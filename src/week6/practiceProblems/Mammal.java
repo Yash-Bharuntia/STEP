@@ -1,3 +1,5 @@
+package week6.practiceProblems;
+
 public class Mammal extends Animal {
     protected String furColor;
     protected boolean hasWarmBlood;

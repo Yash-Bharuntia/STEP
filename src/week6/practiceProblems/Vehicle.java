@@ -1,3 +1,5 @@
+package week6.practiceProblems;
+
 import java.util.Random;
 
 public class Vehicle {
